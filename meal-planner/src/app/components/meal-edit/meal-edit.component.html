@@ -1,0 +1,48 @@
+<div class="edit-meal-container">
+  <h2>Editar Refeição</h2>
+
+  <form (ngSubmit)="updateMeal()">
+    <div>
+      <label for="day">Dia:</label>
+      <select id="day" [(ngModel)]="meal.day" name="day" required>
+        <option value="" disabled>Selecione um dia</option>
+        <option value="Segunda-feira">Segunda-feira</option>
+        <option value="Terça-feira">Terça-feira</option>
+        <option value="Quarta-feira">Quarta-feira</option>
+        <option value="Quinta-feira">Quinta-feira</option>
+        <option value="Sexta-feira">Sexta-feira</option>
+        <option value="Sábado">Sábado</option>
+        <option value="Domingo">Domingo</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="mealType">Tipo de Refeição:</label>
+      <select id="mealType" [(ngModel)]="meal.mealType" name="mealType" required>
+        <option value="" disabled>Selecione o tipo de refeição</option>
+        <option value="café da manhã">Café da Manhã</option>
+        <option value="almoço">Almoço</option>
+        <option value="jantar">Jantar</option>
+        <option value="lanche">Lanche</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="recipes">Lista de Receitas/Alimentos:</label>
+      <input id="recipes" [(ngModel)]="meal.recipes" name="recipes" required>
+    </div>
+
+    <div>
+      <label for="portions">Quantidade de Porções:</label>
+      <input id="portions" type="number" [(ngModel)]="meal.portions" name="portions" required>
+    </div>
+
+    <div>
+      <label for="notes">Notas ou Observações:</label>
+      <textarea id="notes" [(ngModel)]="meal.notes" name="notes"></textarea>
+    </div>
+
+    <button type="submit">Salvar Alterações</button>
+    <button type="button" (click)="cancel()">Cancelar</button>
+  </form>
+</div>

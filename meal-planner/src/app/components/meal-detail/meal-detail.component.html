@@ -1,0 +1,21 @@
+<div class="meal-details-container">
+  <h2>Detalhes da Refeição</h2>
+
+  <div *ngIf="meal">
+    <p><strong>Dia:</strong> {{ meal.day }}</p>
+    <p><strong>Tipo de Refeição:</strong> {{ meal.mealType }}</p>
+    <p><strong>Receitas:</strong></p>
+    <pre>{{ meal.recipes }}</pre>
+    <p><strong>Porções:</strong> {{ meal.portions }}</p>
+    <p><strong>Notas:</strong></p>
+    <pre>{{ meal.notes }}</pre>
+
+    <button (click)="goBack()" class="go-back-button">Voltar</button>
+    <button (click)="editMeal()" class="edit-button">Editar</button>
+  </div>
+
+  <div *ngIf="!meal" class="not-found">
+    <p>Refeição não encontrada.</p>
+    <button (click)="goBack()" class="go-back-button">Voltar</button>
+  </div>
+</div>

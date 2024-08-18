@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 class="title">Plano de Refeições</h1>
+
+  <div class="filter-container">
+    <div class="filter">
+      <input type="text" id="filter" [(ngModel)]="filterCriteria" (input)="filterMeals(filterCriteria)" placeholder="Filtre por tipo de refeição ou dia">
+      <button (click)="clearFilter()">Limpar</button>
+    </div>
+  </div>
+  <div class="add-meal-button">
+    <a routerLink="/meals/new">Adicionar Refeição</a>
+  </div>
+
+  <div *ngIf="filteredMeals.length > 0; else noMeals" class="meal-list">
+    <div *ngFor="let meal of filteredMeals" class="meal-card">
+      <h2>{{ meal.day }} - {{ meal.mealType }}</h2>
+      <p>Receitas/Alimentos: {{ meal.recipes }}</p>
+      <p>Porções: {{ meal.portions }}</p>
+      <p>Notas: 
+        <span class="notes">{{ meal.notes }}</span>
+
+      </p>
+      <div class="meal-actions">
+        <button [routerLink]="['/meals', meal.id]" class="details-meal-button">Detalhes</button>
+        <button (click)="deleteMeal(meal.id)" class="remove-meal-button">Deletar</button>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noMeals>
+    <div class="no-meals">
+      <p>Nenhuma refeição disponível.</p>
+    </div>
+  </ng-template>
+</div>  

@@ -1,0 +1,102 @@
+/* Container principal para detalhes da refeição */
+.meal-details-container {
+  max-width: 600px; /* Largura máxima do container */
+  margin: 0 auto; /* Centraliza o container horizontalmente */
+  padding: 20px; /* Espaçamento interno do container */
+  background-color: #fff; /* Cor de fundo branca */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Título dos detalhes */
+.meal-details-container h2 {
+  font-size: 24px; /* Tamanho da fonte do título */
+  margin-bottom: 20px; /* Espaçamento abaixo do título */
+  text-align: center; /* Alinha o título ao centro */
+  color: #333; /* Cor do texto do título */
+}
+
+/* Estilo para os detalhes da refeição */
+.meal-details-container p {
+  font-size: 16px; /* Tamanho da fonte dos detalhes */
+  margin-bottom: 15px; /* Espaçamento abaixo dos parágrafos */
+  line-height: 1.6; /* Altura da linha */
+  color: #555; /* Cor do texto dos detalhes */
+}
+
+/* Estilo para o conteúdo das receitas e notas */
+.meal-details-container pre {
+  background-color: #f8f8f8; /* Cor de fundo cinza claro */
+  border: 1px solid #ddd; /* Borda cinza clara */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 12px; /* Espaçamento interno do conteúdo */
+  overflow-x: auto; /* Permite rolar horizontalmente se o conteúdo for largo */
+  font-size: 14px; /* Tamanho da fonte */
+  white-space: pre-wrap; /* Quebra de linha automática */
+  color: #333; /* Cor do texto */
+  margin-bottom: 30px;
+}
+
+/* Estilo para os botões */
+.meal-details-container button {
+  padding: 10px 15px; /* Espaçamento interno dos botões */
+  border: none; /* Remove a borda padrão dos botões */
+  border-radius: 6px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor em forma de mão ao passar sobre o botão */
+  font-size: 16px; /* Tamanho da fonte dos botões */
+  margin: 10px 5px; /* Espaçamento entre os botões */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+/* Estilo para o botão "Voltar" */
+.meal-details-container .go-back-button {
+  background-color: #007bff; /* Cor de fundo azul */
+  color: white; /* Cor do texto do botão */
+}
+
+.meal-details-container .go-back-button:hover {
+  background-color: #0056b3; /* Cor de fundo azul mais escuro ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
+}
+
+/* Estilo para o botão "Editar" */
+.meal-details-container .edit-button {
+  background-color: #28a745; /* Cor de fundo verde */
+  color: white; /* Cor do texto do botão */
+}
+
+.meal-details-container .edit-button:hover {
+  background-color: #218838; /* Cor de fundo verde mais escuro ao passar o mouse */
+  transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
+}
+
+/* Estilo para quando a refeição não for encontrada */
+.meal-details-container .not-found {
+  text-align: center; /* Alinha o texto ao centro */
+  font-size: 18px; /* Tamanho da fonte */
+  color: #dc3545; /* Cor vermelha */
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 768px) {
+  .meal-details-container {
+    padding: 15px; /* Reduz o padding em telas menores */
+  }
+
+  .meal-details-container h2 {
+    font-size: 20px; /* Ajusta o tamanho da fonte do título */
+  }
+
+  .meal-details-container p {
+    font-size: 14px; /* Ajusta o tamanho da fonte dos detalhes */
+  }
+
+  .meal-details-container pre {
+    font-size: 13px; /* Ajusta o tamanho da fonte do conteúdo */
+  }
+
+  .meal-details-container button {
+    padding: 8px 12px; /* Ajusta o padding dos botões */
+    font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
+  }
+}

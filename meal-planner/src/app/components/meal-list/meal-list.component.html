@@ -1,0 +1,8 @@
+<h2>Plano de Refeições</h2>
+<a routerLink="/meals/new">Adicionar Refeição</a>
+<ul>
+  <li *ngFor="let meal of meals">
+    <a [routerLink]="['/meals', meal.id]">{{ meal.day }} - {{ meal.mealType }}</a>
+    <button (click)="deleteMeal(meal.id!)">Deletar</button>
+  </li>
+</ul>
