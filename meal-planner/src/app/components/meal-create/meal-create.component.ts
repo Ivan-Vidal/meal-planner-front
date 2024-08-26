@@ -16,12 +16,22 @@ export class MealCreateComponent {
     notes: ''
   };
 
+  isLoading: boolean = false;
+
   constructor(private mealService: MealService, private router: Router) {}
 
   createMeal(): void {
-    this.mealService.createMeal(this.meal).subscribe(() => {
-      this.router.navigate(['/meals']);
-    });
+    this.isLoading = true; // Define como true antes da chamada
+    this.mealService.createMeal(this.meal).subscribe(
+      () => {
+        this.isLoading = false; // Define como false quando a chamada é concluída
+        this.router.navigate(['/meals']);
+      },
+      error => {
+        console.error('Erro ao criar refeição', error);
+        this.isLoading = false; // Define como false em caso de erro
+      }
+    );
   }
 
   cancel(): void {

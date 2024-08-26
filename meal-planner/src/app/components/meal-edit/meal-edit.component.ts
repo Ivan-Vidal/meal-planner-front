@@ -15,6 +15,7 @@ export class MealEditComponent implements OnInit {
     portions: 1,
     notes: ''
   };
+  isLoading: boolean = false;
 
   constructor(
     private mealService: MealService,
@@ -31,9 +32,17 @@ export class MealEditComponent implements OnInit {
 
   updateMeal(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
-    this.mealService.updateMeal(id, this.meal).subscribe(() => {
-      this.router.navigate(['/meals']);
-    });
+    this.isLoading = true; // Define como true antes da chamada
+    this.mealService.updateMeal(id, this.meal).subscribe(
+      () => {
+        this.isLoading = false; // Define como false quando a chamada é concluída
+        this.router.navigate(['/meals']);
+      },
+      error => {
+        console.error('Erro ao atualizar refeição', error);
+        this.isLoading = false; // Define como false em caso de erro
+      }
+    );
   }
   cancel(): void {
     this.router.navigate(['/meals']);

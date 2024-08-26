@@ -12,6 +12,7 @@ export class MealPlanViewComponent implements OnInit {
   filterCriteria: string = '';
   showDeletePopup: boolean = false;
   mealToDelete: any = null;
+  isLoading: boolean = false;
 
   constructor(private mealService: MealService) {}
   ngOnInit(): void {
@@ -19,10 +20,18 @@ export class MealPlanViewComponent implements OnInit {
   }
 
   getMeals(): void {
-    this.mealService.getMeals().subscribe(data => {
-      this.meals = data;
-      this.filteredMeals = this.meals;
-    });
+    this.isLoading = true;
+    this.mealService.getMeals().subscribe(
+      data => {
+        this.meals = data;
+        this.filteredMeals = this.meals;
+        this.isLoading = false; // Define como false quando a chamada é concluída
+      },
+      error => {
+        console.error('Erro ao carregar refeições', error);
+        this.isLoading = false; // Define como false em caso de erro
+      }
+    );
   }
 
   // Abre o popup de confirmação

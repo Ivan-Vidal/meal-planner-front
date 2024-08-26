@@ -12,7 +12,13 @@
     <a routerLink="/meals/new">Adicionar Refeição</a>
   </div>
 
-  <div *ngIf="filteredMeals.length > 0; else noMeals" class="meal-list">
+  <div *ngIf="isLoading" class="loading-spinner">
+    <!-- Exemplo de spinner simples com CSS -->
+    <div class="spinner"></div>
+    <p>Carregando...</p>
+  </div>
+
+  <div *ngIf="!isLoading && filteredMeals.length > 0; else noMeals" class="meal-list">
     <app-meal-card 
     class="meal-card-component"
       *ngFor="let meal of filteredMeals"

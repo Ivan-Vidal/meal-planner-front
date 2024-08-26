@@ -1,3 +1,8 @@
+<div *ngIf="isLoading" class="loading-spinner">
+  <div class="spinner"></div>
+  <p>Atualizando...</p>
+</div>
+
 <div class="edit-meal-container">
   <h2>Editar Refeição</h2>
   <form (ngSubmit)="updateMeal()" #editMealForm="ngForm">
