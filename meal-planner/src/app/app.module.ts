@@ -9,6 +9,7 @@ import { MealListComponent } from './components/meal-list/meal-list.component';
 import { MealEditComponent } from './components/meal-edit/meal-edit.component';
 import { MealDetailComponent } from './components/meal-detail/meal-detail.component';
 import { MealPlanViewComponent } from './components/meal-plan-view/meal-plan-view.component';
+import { MealCardComponent } from './components/meal-card/meal-card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MealPlanViewComponent } from './components/meal-plan-view/meal-plan-vie
     MealListComponent,
     MealEditComponent,
     MealDetailComponent,
-    MealPlanViewComponent
+    MealPlanViewComponent,
+    MealCardComponent
   ],
   imports: [
     BrowserModule,

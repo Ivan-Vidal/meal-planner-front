@@ -3,7 +3,8 @@
 
   <div class="filter-container">
     <div class="filter">
-      <input type="text" id="filter" [(ngModel)]="filterCriteria" (input)="filterMeals(filterCriteria)" placeholder="Filtre por tipo de refeição ou dia">
+      <input type="text" id="filter" [(ngModel)]="filterCriteria" (input)="filterMeals(filterCriteria)"
+        placeholder="Filtre por tipo de refeição ou dia">
       <button (click)="clearFilter()">Limpar</button>
     </div>
   </div>
@@ -12,24 +13,31 @@
   </div>
 
   <div *ngIf="filteredMeals.length > 0; else noMeals" class="meal-list">
-    <div *ngFor="let meal of filteredMeals" class="meal-card">
-      <h2>{{ meal.day }} - {{ meal.mealType }}</h2>
-      <p>Receitas/Alimentos: {{ meal.recipes }}</p>
-      <p>Porções: {{ meal.portions }}</p>
-      <p>Notas: 
-        <span class="notes">{{ meal.notes }}</span>
+    <app-meal-card 
+    class="meal-card-component"
+      *ngFor="let meal of filteredMeals"
+      [meal]="meal" 
+      (deleteMeal)="openDeletePopup($event)">
+    </app-meal-card>
 
-      </p>
-      <div class="meal-actions">
-        <button [routerLink]="['/meals', meal.id]" class="details-meal-button">Detalhes</button>
-        <button (click)="deleteMeal(meal.id)" class="remove-meal-button">Deletar</button>
-      </div>
-    </div>
   </div>
-  
+
   <ng-template #noMeals>
     <div class="no-meals">
       <p>Nenhuma refeição disponível.</p>
     </div>
   </ng-template>
-</div>  
+
+  <!-- Popup Modal de Confirmação -->
+  <div class="modal" *ngIf="showDeletePopup">
+    <div class="modal-content">
+      <h2>Confirmar exclusão</h2>
+      <p>Tem certeza em deletar a refeição ?<br><br>
+       <span>{{ mealToDelete?.day }} - {{ mealToDelete?.mealType }}</span>
+       <br>
+      </p>
+      <button (click)="confirmDelete()" class="confirm-button">Sim</button>
+      <button (click)="closeDeletePopup()" class="cancel-button">Cancelar</button>
+    </div>
+  </div>
+</div>

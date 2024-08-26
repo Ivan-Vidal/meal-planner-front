@@ -1,0 +1,13 @@
+<div class="meal-card">
+    <h2>{{ meal.day }} - {{ meal.mealType }}</h2>
+    <p>Receitas/Alimentos: {{ meal.recipes }}</p>
+    <p>Porções: {{ meal.portions }}</p>
+    <p>Notas: 
+      <span class="notes">{{ meal.notes }}</span>
+    </p>
+    <div class="meal-actions">
+      <button [routerLink]="['/meals', meal.id]" class="details-meal-button">Detalhes</button>
+      <button (click)="openDeletePopup(meal)" class="remove-meal-button">Deletar</button>
+    </div>
+  </div>
+  

@@ -1,108 +1,112 @@
 /* Container principal do formulário de edição */
 .edit-meal-container {
-    max-width: 600px; /* Largura máxima do container */
-    margin: 0 auto; /* Centraliza o container horizontalmente */
-    padding: 20px; /* Espaçamento interno do container */
-    background-color: #fff; /* Cor de fundo branca */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-meal-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.edit-meal-container div {
+  margin-bottom: 15px;
+}
+
+.edit-meal-container label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.edit-meal-container select,
+.edit-meal-container input,
+.edit-meal-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.edit-meal-container textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Estilo para botões */
+.edit-meal-container button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-meal-container button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+}
+
+.edit-meal-container button[type="submit"]:hover:enabled {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.edit-meal-container button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.edit-meal-container button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+}
+
+.edit-meal-container button[type="button"]:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
+/* Mensagens de erro */
+.error-message {
+  color: #d9534f;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .edit-meal-container {
+    padding: 15px;
   }
-  
-  /* Título do formulário */
+
   .edit-meal-container h2 {
-    font-size: 24px; /* Tamanho da fonte do título */
-    margin-bottom: 20px; /* Espaçamento abaixo do título */
-    text-align: center; /* Alinha o título ao centro */
-    color: #333; /* Cor do texto do título */
+    font-size: 20px;
   }
-  
-  /* Estilo para os campos do formulário */
-  .edit-meal-container div {
-    margin-bottom: 15px; /* Espaçamento abaixo dos campos */
-  }
-  
-  /* Estilo para labels */
+
   .edit-meal-container label {
-    display: block; /* Exibe o label como bloco para ocupar a linha inteira */
-    font-size: 16px; /* Tamanho da fonte do label */
-    margin-bottom: 5px; /* Espaçamento abaixo do label */
-    color: #555; /* Cor do texto do label */
+    font-size: 14px;
   }
-  
-  /* Estilo para inputs e selects */
+
   .edit-meal-container select,
   .edit-meal-container input,
   .edit-meal-container textarea {
-    width: 100%; /* Largura total do campo */
-    padding: 10px; /* Espaçamento interno */
-    border: 1px solid #ddd; /* Borda cinza clara */
-    border-radius: 4px; /* Bordas arredondadas */
-    box-sizing: border-box; /* Inclui padding e borda na largura total */
-    font-size: 16px; /* Tamanho da fonte */
+    font-size: 14px;
   }
-  
-  /* Estilo para o campo de texto (textarea) */
-  .edit-meal-container textarea {
-    height: 100px; /* Altura do textarea */
-    resize: vertical; /* Permite redimensionar verticalmente */
-  }
-  
-  /* Estilo para botões */
+
   .edit-meal-container button {
-    padding: 10px 15px; /* Espaçamento interno dos botões */
-    border: none; /* Remove a borda padrão dos botões */
-    border-radius: 6px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor em forma de mão ao passar sobre o botão */
-    font-size: 16px; /* Tamanho da fonte dos botões */
-    margin: 10px 5px; /* Espaçamento entre os botões */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+    padding: 8px 12px;
+    font-size: 14px;
   }
-  
-  /* Estilo para o botão "Salvar Alterações" */
-  .edit-meal-container button[type="submit"] {
-    background-color: #007bff; /* Cor de fundo azul */
-    color: white; /* Cor do texto do botão */
-  }
-  
-  .edit-meal-container button[type="submit"]:hover {
-    background-color: #0056b3; /* Cor de fundo azul mais escuro ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
-  }
-  
-  /* Estilo para o botão "Cancelar" */
-  .edit-meal-container button[type="button"] {
-    background-color: #6c757d; /* Cor de fundo cinza */
-    color: white; /* Cor do texto do botão */
-  }
-  
-  .edit-meal-container button[type="button"]:hover {
-    background-color: #5a6268; /* Cor de fundo cinza mais escuro ao passar o mouse */
-    transform: scale(1.05); /* Leve aumento no botão ao passar o mouse */
-  }
-  
-  /* Estilos específicos para dispositivos móveis */
-  @media (max-width: 768px) {
-    .edit-meal-container {
-      padding: 15px; /* Reduz o padding em telas menores */
-    }
-  
-    .edit-meal-container h2 {
-      font-size: 20px; /* Ajusta o tamanho da fonte do título */
-    }
-  
-    .edit-meal-container label {
-      font-size: 14px; /* Ajusta o tamanho da fonte dos labels */
-    }
-  
-    .edit-meal-container select,
-    .edit-meal-container input,
-    .edit-meal-container textarea {
-      font-size: 14px; /* Ajusta o tamanho da fonte dos campos */
-    }
-  
-    .edit-meal-container button {
-      padding: 8px 12px; /* Ajusta o padding dos botões */
-      font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
-    }
-  }
-  
+}

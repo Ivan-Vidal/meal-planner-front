@@ -1,206 +1,242 @@
+/* Estilos gerais */
 .container {
   width: 100%;
-  padding: 10px 24px;
+  padding: 10px 20px; /* Menos padding para dispositivos móveis */
+  max-width: 100%; /* Garante que o container não ultrapasse a largura da tela */
+  margin: 0 auto; /* Centraliza o container horizontalmente */
 }
 
 .title {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 1.5em; /* Tamanho menor do título para dispositivos móveis */
+}
+
+.add-meal-button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.add-meal-button a {
+  background-color: #4caf50;
+  border: none;
+  color: #fff;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.add-meal-button a:hover {
+  background-color: #45a049; /* Cor mais escura ao passar o mouse */
+}
+
+.filter-container {
+  margin: 20px 0; /* Espaçamento acima e abaixo do container */
+  width: 100%;
+  max-width: 400px; /* Garante que o container não ultrapasse a largura da tela */
+}
+
+.filter {
+  display: flex;
+  flex-direction: column; /* Filtros empilhados verticalmente no mobile */
+  gap: 10px; /* Espaçamento entre os filtros */
+  align-items: stretch; /* Alinha os filtros para preencher a largura disponível */
+}
+
+.filter input[type="text"] {
+  width: 100%; /* Largura completa para dispositivos móveis */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.filter button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Botão ocupa toda a largura disponível */
+}
+
+.filter button:hover {
+  background-color: #0056b3;
+}
+
+.meal-list {
+  display: flex;
+  flex-direction: column; /* Cards dispostos verticalmente no mobile */
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+
+.meal-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Ações dispostas verticalmente no mobile */
+  gap: 10px; /* Espaçamento entre botões */
+}
+
+.details-meal-button,
+.remove-meal-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.details-meal-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.remove-meal-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.no-meals {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  padding: 20px;
+}
+
+.notes {
+text-align: justify;
+}
+
+/* Estilos gerais para o modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Garante que o modal fique acima de outros elementos */
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  max-width: 90%; /* Largura máxima para garantir responsividade */
+  width: 400px; /* Largura fixa para desktops */
+  text-align: center;
+  position: relative;
+}
+
+h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.notes {
-  text-align: justify;
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-/* Estilo para o container da lista de refeições */
-.meal-list {
-  display: flex;
-  flex-wrap: wrap; /* Permite que os cards quebrem para a linha seguinte se não houver espaço suficiente */
-  gap: 20px; /* Espaçamento entre os cards */
-  margin-top: 50px;
+span {
+  font-weight: bold;
 }
-/* Estilo para cada card de refeição */
-.meal-card {
-  background-color: #f9f9f9; /* Cor de fundo do card */
-  border: 1px solid #ddd; /* Borda cinza clara */
-  border-radius: 8px; /* Bordas arredondadas */
-  padding: 15px; /* Espaçamento interno do card */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra ao redor do card */
-  width: 100%; /* Largura total do card */
-  max-width: 400px; /* Largura maxima do card */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves para transformações e sombra */
+/* Estilos para os botões de confirmação e cancelamento */
+.confirm-button,
+.cancel-button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-/* Estilo de hover para o card */
-.meal-card:hover {
-  transform: scale(1.02); /* Aumenta ligeiramente o tamanho do card ao passar o mouse */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Intensifica a sombra ao passar o mouse */
+.confirm-button {
+  background-color: #dc3545;
+  color: white;
 }
 
-.meal-actions { 
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.cancel-button {
+  background-color: #6c757d;
+  color: white;
 }
 
-/* Estilo para os botões dentro do card */
-.meal-actions button {
-  color: white; /* Cor do texto */
-  border: none; /* Remove a borda padrão */
-  padding: 10px 15px; /* Espaçamento interno */
-  margin-right: 10px; /* Espaçamento entre os botões */
-  border-radius: 4px; /* Bordas arredondadas */
-  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
-  transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+/* Estilos para o botão de fechamento */
+.modal-content button {
+  margin: 0 5px;
 }
 
-/* Estilos específicos para o botão de detalhes */
-.details-meal-button {
-  background-color: #28a745; /* Cor de fundo verde */
-}
-
-.details-meal-button:hover {
-  background-color: #218838; /* Cor de fundo mais escuro ao passar o mouse */
-}
-
-/* Estilos específicos para o botão de remover */
-.remove-meal-button {
-  background-color: #dc3545; /* Cor de fundo vermelho */
-}
-
-.remove-meal-button:hover {
-  background-color: #c82333; /* Cor de fundo vermelho mais escuro ao passar o mouse */
-}
-
-/* Estilos para quando não há refeições */
-.no-meals {
-  text-align: center; /* Alinha o texto ao centro */
-  padding: 20px; /* Espaçamento interno */
-  font-size: 18px; /* Tamanho da fonte */
-  color: #666; /* Cor do texto */
-}
-
-  
-    /* Estilo básico para o botão */
-
-    .add-meal-button {
-      display: flex; /* Permite definir a largura e altura */
-      justify-content: center; /* Alinha o texto ao centro */
-    }
-.add-meal-button a {
-  background-color: #4CAF50; /* Cor de fundo verde */
-  border: none; /* Remove a borda padrão */
-  color: white; /* Cor do texto */
-  padding: 10px 15px; /* Espaçamento interno */
-  text-align: center; /* Alinha o texto ao centro */
-  text-decoration: none; /* Remove o sublinhado */
-  display: inline-block; /* Permite definir a largura e altura */
-  font-size: 16px; /* Tamanho da fonte */
-  margin: 4px 2px; /* Espaçamento externo */
-  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
-}
-
-/* Efeito de hover */
-.add-meal-button a:hover {
-  background-color: #45a049; /* Cor de fundo verde mais escuro ao passar o mouse */
-}
-
-/* Efeito de foco */
-.add-meal-button:focus {
-  outline: none; /* Remove o contorno padrão */
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao redor do botão */
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%; /* Largura ajustada para dispositivos móveis */
+  }
 }
 
 
-.remove-meal-button {
-  background-color: #f44336; /* Cor de fundo vermelha */  
-  border: none; /* Remove a borda padrão */
-  color: white; /* Cor do texto */
-  padding: 10px 15px; /* Espaçamento interno */
-  text-align: center; /* Alinha o texto ao centro */
-  text-decoration: none; /* Remove o sublinhado */
-  display: inline-block; /* Permite definir a largura e altura */
-  font-size: 16px; /* Tamanho da fonte */
-  margin: 4px 2px; /* Espaçamento externo */
-  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: background-color 0.3s ease;
-}
-
-.details-meal-button {
-  background-color: #2196F3; /* Cor de fundo azul */
-  border: none; /* Remove a borda padrão */
-  color: white; /* Cor do texto */
-  padding: 10px 15px; /* Espaçamento interno */
-  text-align: center; /* Alinha o texto ao centro */
-  text-decoration: none; /* Remove o sublinhado */
-  display: inline-block; /* Permite definir a largura e altura */
-  font-size: 16px; /* Tamanho da fonte */
-  margin: 4px 2px; /* Espaçamento externo */
-  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: background-color 0.3s ease;
-}
-
-/* Estilo para o container do filtro */
-.filter-container {
-  margin: 20px 0; /* Espaçamento acima e abaixo do container */
-}
-
-.filter {
-  display: flex; /* Permite que o filtro seja exibido em linha */
-  align-items: center; /* Alinha os itens ao centro */
-}
-
-.filter-label {
-  margin-bottom: 10px; /* Espaçamento entre o label e o campo de entrada */
-}
-
-/* Estilo para o campo de entrada de filtro */
-.filter input[type="text"] {
-  width: 250px; /* Largura do campo de entrada */
-  padding: 10px; /* Espaçamento interno */
-  font-size: 16px; /* Tamanho da fonte */
-  border: 1px solid #ccc; /* Borda cinza clara */
-  border-radius: 4px; /* Bordas arredondadas */
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Sombra interna */
-  margin-right: 10px; /* Espaçamento à direita do campo de entrada */
-}
-
-/* Estilo para o botão de filtro */
-.filter button {
-  background-color: #007bff; /* Cor de fundo azul */
-  color: white; /* Cor do texto */
-  border: none; /* Remove a borda padrão */
-  padding: 10px 15px; /* Espaçamento interno */
-  font-size: 16px; /* Tamanho da fonte */
-  border-radius: 4px; /* Bordas arredondadas */
-  cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
-  transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
-}
-
-/* Efeito de hover para o botão */
-.filter button:hover {
-  background-color: #0056b3; /* Cor de fundo azul mais escuro ao passar o mouse */
-}
-
-/* Efeito de foco para o campo de entrada */
-.filter input[type="text"]:focus {
-  border-color: #007bff; /* Cor da borda ao focar */
-  outline: none; /* Remove o contorno padrão */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra ao redor do campo de entrada */
-}
-
-
-@media(min-width: 768px) {
-  .container {  
+/* Ajustes para responsividade geral */
+@media (min-width: 768px) {
+  .container {
     padding: 20px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-} 
+
+  .filter {
+    flex-direction: row; /* Filtros dispostos em linha em telas maiores */
+    align-items: center; /* Alinha os itens ao centro */
+  }
+
+  .filter input[type="text"] {
+    width: 100%; /* Largura automática para telas maiores */
+    margin-right: 10px; /* Espaçamento à direita do campo de entrada */
+    margin-left: auto ;
+  }
+
+  .filter button {
+    width: auto; /* Largura automática para botões em telas maiores */
+  }
+
+  .meal-list {
+    flex-direction: row; /* Cards dispostos em linha em telas maiores */
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .meal-card-component {
+    max-width: calc(50% - 20px); /* Máxima largura para telas médias */
+  }
+
+  @media (min-width: 992px) {
+    .meal-card-component {
+      max-width: calc(33.333% - 20px); /* Largura ajustada para telas grandes */
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .meal-card-component {
+      max-width: calc(25% - 20px); /* Largura ajustada para telas extra-grandes */
+    }
+  }
+}

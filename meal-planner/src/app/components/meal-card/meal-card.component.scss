@@ -1,0 +1,123 @@
+/* Estilo para cada card de refeição */
+.meal-card {
+    background-color: #f9f9f9; /* Cor de fundo do card */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 15px; /* Espaçamento interno do card */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra ao redor do card */
+    width: 100%; /* Largura total do card */
+    max-width: 400px; /* Largura maxima do card */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves para transformações e sombra */
+  }
+  
+  /* Estilo de hover para o card */
+  .meal-card:hover {
+    transform: scale(1.02); /* Aumenta ligeiramente o tamanho do card ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Intensifica a sombra ao passar o mouse */
+  }
+  
+  .meal-actions { 
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Estilo para os botões dentro do card */
+  .meal-actions button {
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda padrão */
+    padding: 10px 15px; /* Espaçamento interno */
+    margin-right: 10px; /* Espaçamento entre os botões */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor em forma de mão ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave na cor de fundo */
+  }
+  
+  /* Estilos específicos para o botão de detalhes */
+  .details-meal-button {
+    background-color: #007bff;
+  }
+  
+  .details-meal-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos específicos para o botão de remover */
+  .remove-meal-button {
+    background-color: #dc3545; /* Cor de fundo vermelho */
+  }
+  
+  .remove-meal-button:hover {
+    background-color: #c82333; /* Cor de fundo vermelho mais escuro ao passar o mouse */
+  }
+
+  .meal-card-component {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .notes {
+    max-height: 80px; /* Limita a altura máxima do campo de notas */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical se o conteúdo ultrapassar a altura */
+    word-wrap: break-word; /* Quebra as palavras longas para evitar overflow horizontal */
+    white-space: pre-wrap; /* Mantém os espaços em branco e as quebras de linha */
+  }
+  
+  textarea#notes {
+    max-height: 80px; /* Limita a altura máxima do campo de notas no formulário */
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical no campo de notas */
+    resize: none; /* Impede que o usuário redimensione o campo de texto */
+    word-wrap: break-word; /* Quebra as palavras longas para evitar overflow horizontal */
+  }
+  
+  .meal-card-component p {
+    margin: 10px 0;
+    word-wrap: break-word; /* Garante que todo o texto dentro dos parágrafos seja quebrado corretamente */
+  }
+  
+  .meal-card-component .meal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .details-meal-button,
+  .remove-meal-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .details-meal-button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white;
+  }
+  
+  .details-meal-button:hover {
+    background-color: #0056b3; /* Cor de fundo mais escuro ao passar o mouse */
+  }
+  
+  .remove-meal-button {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  
+  /* Estilos para quando não há refeições */
+  .no-meals {
+    text-align: center; /* Alinha o texto ao centro */
+    padding: 20px; /* Espaçamento interno */
+    font-size: 18px; /* Tamanho da fonte */
+    color: #666; /* Cor do texto */
+  }
+  
