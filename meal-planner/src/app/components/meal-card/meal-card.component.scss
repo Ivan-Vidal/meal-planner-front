@@ -1,28 +1,35 @@
-/* Estilo para cada card de refeição */
+/* Estilo para o componente de cartão de refeição */
 .meal-card {
-    background-color: #f9f9f9; /* Cor de fundo do card */
-    border: 1px solid #ddd; /* Borda cinza clara */
-    border-radius: 8px; /* Bordas arredondadas */
-    padding: 15px; /* Espaçamento interno do card */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra ao redor do card */
-    width: 100%; /* Largura total do card */
-    max-width: 400px; /* Largura maxima do card */
-    box-sizing: border-box; /* Inclui padding e border no cálculo da largura total */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves para transformações e sombra */
-  }
-  
-  /* Estilo de hover para o card */
-  .meal-card:hover {
-    transform: scale(1.02); /* Aumenta ligeiramente o tamanho do card ao passar o mouse */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Intensifica a sombra ao passar o mouse */
-  }
-  
-  .meal-actions { 
-    margin-top: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column; /* Empilha os elementos verticalmente */
+  justify-content: space-between; /* Espaça o conteúdo para empurrar a div de ações para o fundo */
+  background: #fff; /* Cor de fundo do cartão */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+  overflow: hidden; /* Garante que o conteúdo não transborde os limites do cartão */
+  padding: 16px; /* Espaçamento interno do cartão */
+  height: 100%; /* Garante que o cartão ocupe toda a altura disponível */
+  transition: transform 0.3s; /* Transição suave para efeitos de hover */
+}
+
+/* Estilo para a div de ações */
+.meal-actions {
+  display: flex;
+  justify-content: space-between; /* Espaça os botões de ação */
+  margin-top: 16px; /* Espaçamento acima da div de ações */
+}
+
+/* Botões de ação */
+.details-meal-button, .remove-meal-button {
+  padding: 8px 16px; /* Espaçamento interno dos botões */
+  border: none; /* Remove bordas padrão dos botões */
+  border-radius: 4px; /* Bordas arredondadas dos botões */
+  cursor: pointer; /* Cursor de mão sobre os botões */
+  transition: background-color 0.3s; /* Transição suave para a cor de fundo dos botões */
+}
+
+
+
   
   /* Estilo para os botões dentro do card */
   .meal-actions button {
