@@ -16,27 +16,27 @@ export interface Meal {
   providedIn: 'root'
 })
 export class MealService {
-  private apiUrl = `${environment.apiUrl}/meals`;
+  private apiUrl = `${environment.apiUrl}`;
 
   constructor(private http: HttpClient) {}
 
   getMeals(): Observable<Meal[]> {
-    return this.http.get<Meal[]>(this.apiUrl);
+    return this.http.get<Meal[]>(`${this.apiUrl}/meals`);
   }
 
   getMeal(id: number): Observable<Meal> {
-    return this.http.get<Meal>(`${this.apiUrl}/${id}`);
+    return this.http.get<Meal>(`${this.apiUrl}/meals/${id}`);
   }
 
   createMeal(meal: Meal): Observable<Meal> {
-    return this.http.post<Meal>(this.apiUrl, meal);
+    return this.http.post<Meal>(`${this.apiUrl}/mealsCreate`, meal);
   }
 
   updateMeal(id: number, meal: Meal): Observable<Meal> {
-    return this.http.put<Meal>(`${this.apiUrl}/${id}`, meal);
+    return this.http.put<Meal>(`${this.apiUrl}/meals/${id}`, meal);
   }
 
   deleteMeal(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/meals/${id}`);
   }
 }
